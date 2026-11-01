@@ -1,9 +1,6 @@
 name: votar
 on:
-  schedule:
-    - cron: '5 * * * *'    # principal
-    - cron: '35 * * * *'   # reserva: so vota se a das :05 nao rodou ou falhou
-  workflow_dispatch:
+  workflow_dispatch:       # disparado a cada 10 min pelo cron-job.org; o schedule do GitHub falhava horas seguidas
 permissions:
   contents: write          # para guardar ultimo.txt
 concurrency:
