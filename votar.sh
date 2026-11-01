@@ -2,12 +2,12 @@
 # Vota em $EU nos 6 cargos do naoeummapa, 1x em cada hora do relogio.
 # O servidor aceita qualquer voto, mas so computa 1 por hora por cargo; para nao gastar o voto da hora,
 # guarda em ultimo.txt quando votou e, se preciso, espera completar 60 min + MARGEM antes de votar de novo.
-# Disparado a cada 10 min pelo cron-job.org (workflow_dispatch); a maioria das rodadas so ve que ja votou e sai.
+# Disparado a cada 15 min pelo cron-job.org (workflow_dispatch); a maioria das rodadas so ve que ja votou e sai.
 set -u
 EU="${EU:?defina EU}"
 SID="${VOTO_SID:?defina o secret VOTO_SID}"
 ESTADO=ultimo.txt
-MARGEM=20           # segundos alem dos 60 min
+MARGEM=5            # segundos alem dos 60 min (pouco, para o horario do voto nao ir atrasando hora a hora)
 ESPERA_MAX=600      # nao espera mais que 10 min: o disparo seguinte cobre o resto
 
 hora() { TZ=America/Sao_Paulo date -d "@$1" +%Y%m%d%H; }

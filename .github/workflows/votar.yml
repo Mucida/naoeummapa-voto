@@ -1,6 +1,6 @@
 name: votar
 on:
-  workflow_dispatch:       # disparado a cada 10 min pelo cron-job.org; o schedule do GitHub falhava horas seguidas
+  workflow_dispatch:       # disparado a cada 15 min pelo cron-job.org; o schedule do GitHub falhava horas seguidas
 permissions:
   contents: write          # para guardar ultimo.txt
 concurrency:
